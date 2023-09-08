@@ -1,53 +1,49 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-        <v-div>
-          <h2>MEVN</h2>
-        </v-div>
-      </div>
+<!-- App.vue -->
 
-      <v-spacer></v-spacer>
+<v-app>
+  <v-navigation-drawer app>
+    <MenuLateral></MenuLateral>
+  </v-navigation-drawer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Github</span>
-        <v-icon>open_in_new</v-icon>
-      </v-btn>
-    </v-app-bar>
+  <v-app-bar app>
+    Esto es la barra superior
+  </v-app-bar>
 
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+  <!-- Sizes your content based upon application components -->
+  <v-main>
+
+    <!-- Provides the application the proper gutter -->
+    <v-container fluid>
+
+      <!-- If using vue-router -->
+      <router-view></router-view>
+    </v-container>
+  </v-main>
+
+  <v-footer app>
+    <!-- -->
+  </v-footer>
+</v-app>
 </template>
 
 <script>
-
+import MenuLateral from './components/MenuLateral.vue';
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
 export default {
+
   name: 'App',
 
-  data: () => ({
-    setup() {
+  data () {
     return {
-      count: ref(0)
+ 
     }
-  }
-  }),
+  },
+  components: {
+    MenuLateral
+  },
+  icons: {
+    iconfont: 'mdiSvg', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+  },
 };
 </script>
